@@ -1,0 +1,4 @@
+ssl_certificate      {{ letsencrypt_cert_path }}/{{ item.key }}/fullchain.pem;
+ssl_certificate_key  {{ letsencrypt_cert_path }}/{{ item.key }}/privkey.pem;
+ssl_trusted_certificate {{ letsencrypt_cert_path }}/{{ item.key }}/fullchain.pem;
+include /etc/nginx/snippets/ssl.conf;

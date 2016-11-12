@@ -1,0 +1,8 @@
+---
+nginx_root_path: /etc/nginx
+nginx_web_root: /var/www
+nginx_includes_path: "includes"
+nginx_cert_path: "{{ nginx_root_path }}/ssl"
+nginx_sites_available: "{{ nginx_root_path }}/sites-available"
+nginx_sites_enabled: "{{ nginx_root_path }}/sites-enabled"
+nginx_user: www-data

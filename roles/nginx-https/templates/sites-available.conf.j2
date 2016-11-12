@@ -1,0 +1,39 @@
+# Choose between www and non-www, listen on the *wrong* one and redirect to
+# the right one -- http://wiki.nginx.org/Pitfalls#Server_Name
+#
+
+server {
+  listen [::]:80 ipv6only=on;
+  listen 80;
+
+  # listen on both hosts
+  server_name {{ item.key }} {{ item.value.redirects }};
+  include /etc/nginx/snippets/letsencrypt.conf;
+
+  # and redirect to the https host (declared below)
+  # avoiding http://www -> https://www -> https:// chain.
+
+  return 301 https://{{ item.key }}$request_uri;
+}
+
+server {
+  listen [::]:443 ipv6only=on ssl http2 deferred;
+  listen 443 ssl http2 deferred;
+
+  # The host name to respond to
+  server_name {{ item.key }};
+
+  {% include 'ssl.conf.j2' %}
+
+  # Path for static files
+  root /var/www/{{ item.key }}/public_html;
+
+  #Specify a charset
+  charset utf-8;
+
+  # Custom 404 page
+  error_page 404 /404.html;
+
+  # Include the basic h5bp config set
+  include includes/basic.conf;
+}

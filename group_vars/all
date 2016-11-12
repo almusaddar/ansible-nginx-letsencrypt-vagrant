@@ -1,0 +1,15 @@
+nginx_domains:
+  automationcontrols.us:
+    redirects: www.automationcontrols.us # additional aliases to redirect; seperate with whitespace
+    admin_email: webmaster@automationcontrols.us
+
+letsencrypt_domain: "automationcontrols.us"
+letsencrypt_domain_www: "www.automationcontrols.us"
+letsencrypt_root: /var/www/letsencrypt
+letsencrypt_email: "webmaster@automationcontrols.us"
+letsencrypt_cert_path: /etc/letsencrypt/live
+
+#gitlab.robertmcmonagle.com
+#automationsaas.com
+#expertgod.com
+#automationcontrols.us

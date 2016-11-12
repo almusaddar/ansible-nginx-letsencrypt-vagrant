@@ -1,0 +1,10 @@
+---
+# file: site.yml
+- name: provision server
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - nginx-http
+    - letsencrypt
+    - nginx-https

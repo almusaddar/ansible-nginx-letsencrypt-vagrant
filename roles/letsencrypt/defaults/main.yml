@@ -1,0 +1,8 @@
+---
+  letsencrypt_command: letsencrypt certonly -a webroot --webroot-path="{{ letsencrypt_root }}" -d "{{ letsencrypt_domain }}" -d "{{ letsencrypt_domain_www }}" --non-interactive --email="{{ letsencrypt_email }}" --agree-tos
+  letsencrypt_renewal_frequency:
+    day: "*"
+    hour: 0
+    minute: 0
+  letsencrypt_renewal_command_args: ''
+  letsencrypt_standalone_command_args: ''

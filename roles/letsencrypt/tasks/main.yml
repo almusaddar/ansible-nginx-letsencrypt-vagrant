@@ -1,0 +1,21 @@
+---
+  - name: Install Let's Encrypt Client
+    apt:
+      name: letsencrypt
+      state: latest
+
+  - name: Ensure webroot exists
+    file: path="{{ letsencrypt_root }}" state=directory follow=yes
+    become: yes
+
+  - name: Ensure well-known exists
+    file: path="/var/www/letsencrypt/.well-known/acme-challenge" state=directory follow=yes
+    become: yes
+
+  - name: Get the certificate using the webroot authenticator
+    command: "{{ letsencrypt_command }}"
+    become: yes
+
+  - name: Install renewal cron
+    become: yes
+    cron: name="Let's Encrypt Renewal" day="{{ letsencrypt_renewal_frequency.day }}" hour="{{ letsencrypt_renewal_frequency.hour }}" minute="{{ letsencrypt_renewal_frequency.minute }}" job="letsencrypt renew "
