@@ -1,9 +1,9 @@
-# Ansible Nginx vagrant Let's Encrypt
+# Ansible Playbook to install Nginx and Let's Encrypt, tested with Vagrant
 
-## Updates Nov. 2016 added to dominik work
+## Updates Nov. 2016
 * Ansible 2.2 support
 * Add Vagrant local test
-* Work with Vagrant hosts updated plugin
+* Work with Vagrant hosts-updater plugin
 * Restructure with Ansible Best Practices
 * Install ansible inside Vagrant box and test it
 * access from local browser
@@ -20,9 +20,14 @@ It offers simple configuration of SSL hosts with the ability to use [Let's Encry
 for the creation and renewal of free SSL certificates.
 
 ## How to run / Requirements
-1. ubuntu 16.04
-2. ansible 2.2 / git
-3. git clone
-4. cd
-5. vi group_vars/all and edit domain variable
-6. ansible-playbook site.yml -i production --connection=local
+1. ubuntu 16.04 / ansible 2.2 / git
+2. git clone https://github.com/almusaddar/ansible-nginx-letsencrypt-vagrant.git
+3. cd ansible-nginx-letsencrypt-vagrant
+4. vi group_vars/all and edit domain variable
+5. ansible-playbook site.yml -i production --connection=local
+
+## How to test with Vagrant
+1. git clone https://github.com/almusaddar/ansible-nginx-letsencrypt-vagrant.git
+2. cd ansible-nginx-letsencrypt-vagrant
+3. vagrant up / vagrant ssh / cd /vagrant
+4. ansible-playbook site.yml -i production --connection=local

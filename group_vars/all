@@ -3,7 +3,7 @@ nginx_domains:
     redirects: www.automationcontrols.us
     admin_email: webmaster@automationcontrols.us
 
-domain: "automationcontrols.us"
+domain: automationcontrols.us
 domain_www: "www.{{ domain }}"
 domain_email: "webmaster@{{ domain }}"
 domain_html: /var/www/{{ domain }}/public_html
