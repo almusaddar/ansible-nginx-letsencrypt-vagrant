@@ -1,7 +1,3 @@
-nginx_domains:
-  automationcontrols.us:
-    redirects: www.automationcontrols.us
-    admin_email: webmaster@automationcontrols.us
 
 domain: automationcontrols.us
 domain_www: "www.{{ domain }}"
@@ -13,8 +9,3 @@ letsencrypt_domain_www: "www.{{ domain }}"
 letsencrypt_domain_email: "webmaster@{{ domain }}"
 letsencrypt_domain_html: /var/www/letsencrypt
 letsencrypt_cert_path: /etc/letsencrypt/live
-
-#gitlab.robertmcmonagle.com
-#automationsaas.com
-#expertgod.com
-#automationcontrols.us

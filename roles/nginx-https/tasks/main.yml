@@ -2,6 +2,6 @@
 - name: update Nginx Configuration files from template to support SSL/TLS
   template:
     src: sites-available.conf.j2
-    dest: "{{ nginx_sites_available }}/{{ item.key }}.conf"
+    dest: "{{ nginx_sites_available }}/{{ domain }}.conf"
   with_dict: "{{ nginx_domains }}"
   notify: reload nginx

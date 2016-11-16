@@ -7,13 +7,13 @@ server {
   listen 80;
 
   # listen on both hosts
-  server_name {{ item.key }} {{ item.value.redirects }};
+  server_name {{ domain }} {{ domain_www }};
   include /etc/nginx/snippets/letsencrypt.conf;
 
   # and redirect to the https host (declared below)
   # avoiding http://www -> https://www -> https:// chain.
 
-  return 301 https://{{ item.key }}$request_uri;
+  return 301 https://{{ domain }}$request_uri;
 }
 
 server {
@@ -21,12 +21,12 @@ server {
   listen 443 ssl http2 deferred;
 
   # The host name to respond to
-  server_name {{ item.key }};
+  server_name {{ domain }};
 
   {% include 'ssl.conf.j2' %}
 
   # Path for static files
-  root /var/www/{{ item.key }}/public_html;
+  root /var/www/{{ domain }}/public_html;
 
   #Specify a charset
   charset utf-8;

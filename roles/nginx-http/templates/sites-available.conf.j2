@@ -7,11 +7,11 @@ server {
   listen 80;
 
   # listen on both hosts
-  server_name {{ item.key }} {{ item.value.redirects }};
+  server_name {{ domain }} {{ domain_www }};
   include /etc/nginx/snippets/letsencrypt.conf;
 
   # Path for static files
-  root /var/www/{{ item.key }}/public_html;
+  root {{ domain_html }};
 
   #Specify a charset
   charset utf-8;

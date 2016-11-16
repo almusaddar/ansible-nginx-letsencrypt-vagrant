@@ -29,5 +29,5 @@ for the creation and renewal of free SSL certificates.
 ## How to test with Vagrant
 1. git clone https://github.com/almusaddar/ansible-nginx-letsencrypt-vagrant.git
 2. cd ansible-nginx-letsencrypt-vagrant
-3. vagrant up / vagrant ssh / cd /vagrant
+3. vagrant up + vagrant ssh + cd /vagrant
 4. ansible-playbook site.yml -i production --connection=local
